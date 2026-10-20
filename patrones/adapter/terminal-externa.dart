@@ -2,6 +2,6 @@
 // esta clase no puede ser modificada
 class TerminalExterna{
   void cobrar(double dolares){
-    print('Terminal externa: ${dolares} dolares');
+    print('Terminal externa: cobro de ${dolares} dolares');
   }
 }
