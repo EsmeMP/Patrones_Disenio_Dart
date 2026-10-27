@@ -1,22 +1,23 @@
+import 'cine-facade.dart';
 import 'proyector.dart';
 import 'reproductor.dart';
 import 'sistema-audio.dart';
 
 void main(){
-  final proyector = Proyector();
-  final audio = SistemaAudio();
-  final reproductor = Reproductor();
+  final cine = CineFacade(
+    Proyector(), 
+    SistemaAudio(),
+    Reproductor()
+    );
 
   //Iniciar la película
-  proyector.encender();
-  audio.encender();
-  audio.ajustarVolumen(25);
-  reproductor.reproducir('Ratatouille :3');
-  //Sin facade, se llaman a cada clase y método necesarios
-  //para lograr reproducir la película
+  cine.verPelicula('Ratatouille', 25);
 
   //Detener la película
-  reproductor.detener();
-  audio.apagar();
-  proyector.apagar();
+  cine.terminarReproduccion();
+
+  // la fachada coordina todos los pasos para lograr el objetivo
+  // el usuario solo conoce los metodos sencillos(ver pelicula)
+  // el procedimiento se concentra en una sola clase 'facade'
+  // el usuario no necesita conocer a las clases involucradas
 }
