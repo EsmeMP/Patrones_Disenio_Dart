@@ -22,6 +22,7 @@ class CineFacade{
       _reproductor.reproducir(pelicula);
     }
 
+  // con facade se agurpan todos los llamados a clases y metodos involucrados
     void terminarReproduccion(){
       _reproductor.detener();
       _audio.apagar();
